@@ -4,16 +4,20 @@ pub trait Day {
 }
 
 pub mod day01;
+pub mod day02;
+
+use std::vec;
 
 use day01::Day01;
+use day02::Day02;
 
-use std::collections::HashMap;
 
-pub fn get_days() -> HashMap<u32, Box<dyn Day>> {
-    let mut map: HashMap<u32, Box<dyn Day>> = HashMap::new();
+pub fn get_days() -> Vec<(i32, Box<dyn Day>)> {
+    let mut map: Vec<(i32, Box<dyn Day>)> = vec![];
 
     // Add all days
-    map.insert(1, Box::new(Day01));
+    map.push((1, Box::new(Day01)));
+    map.push((2, Box::new(Day02)));
 
     map
 }
