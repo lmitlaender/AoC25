@@ -5,11 +5,13 @@ pub trait Day {
 
 pub mod day01;
 pub mod day02;
+pub mod day03;
 
 use std::vec;
 
 use day01::Day01;
 use day02::Day02;
+use day03::Day03;
 
 
 pub fn get_days() -> Vec<(i32, Box<dyn Day>)> {
@@ -18,6 +20,7 @@ pub fn get_days() -> Vec<(i32, Box<dyn Day>)> {
     // Add all days
     map.push((1, Box::new(Day01)));
     map.push((2, Box::new(Day02)));
+    map.push((3, Box::new(Day03)));
 
     map
 }
