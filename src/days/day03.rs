@@ -1,5 +1,3 @@
-use std::ops::Index;
-
 use super::Day;
 
 pub struct Day03;
@@ -53,26 +51,26 @@ impl Day for Day03 {
         const ARR_SIZE: usize = 12;
         let banks = Self::parse(input);
         let mut sum: u64 = 0;
-
+        
         // This solution is a further development from part 1 and can be applied to part 1 too
         // It just doesnt stop the iteration over the bank early instead looking at all bank entries and then checking
         // valid left final numer slots if it should go there
         // If it should all digits to the right of it have to be reset to 0 as the battery can't be left of it.
-
         // I kept part 1 and 2 seperate and duplicate to show the evolution of my solution, but this same method should be useable for no 2, just by replacing the 12 const with 2
         for bank in &banks {
             let mut max_vals: [u8; ARR_SIZE] = [0; ARR_SIZE];
-
+            
+            // Optimization potential: instead of iterating over each battery in the bank, is it faster to
+            // fill each digit by iterating over the left subset of the bank? feels like should be similar but yes
+            let mut empty_from = 0;
             for (idx, i) in bank.iter().enumerate() {
                 let left_to_end = bank.len() - idx;
-                let mut range = 0..ARR_SIZE;
-                if left_to_end < ARR_SIZE {
-                    range = (ARR_SIZE - left_to_end)..ARR_SIZE
-                }
-                for y in range {
-                    if *i > max_vals[y] {
+                let start = if left_to_end >= ARR_SIZE { 0 } else { ARR_SIZE - left_to_end };
+                
+                for y in start..ARR_SIZE {
+                    if *i > max_vals[y] || empty_from <= y {
                         max_vals[y] = *i;
-                        max_vals[y + 1..].fill(0);
+                        empty_from = y + 1;
                         break;
                     }
                 }
@@ -86,5 +84,8 @@ impl Day for Day03 {
 
         sum.to_string()
     }
+
+
+    // Alternative Part 2 nice solutions:
 
 }
