@@ -55,7 +55,7 @@ impl Day06 {
             let last = res.last_mut().unwrap();
             for y in 0..lines.len() {
                 if i >= lines[y].len() {
-                    continue; // Skip if the index is out of bounds for this row
+                    continue; // Skip if the index is out of bounds for this row, don't really know why but I dont have time to check today
                 }
                 let char = lines[y][i];
 
