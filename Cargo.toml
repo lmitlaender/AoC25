@@ -6,3 +6,4 @@ authors = ["Lutz Mitländer <lutz@mitlaender.dev>"]
 
 [dependencies]
 num = "0.4.3"
+regex = "1.12.2"
