@@ -1,6 +1,5 @@
 use super::Day;
 
-
 pub struct Day06;
 
 impl Day06 {

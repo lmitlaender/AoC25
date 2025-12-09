@@ -1,6 +1,6 @@
 use super::Day;
 use std::sync::{Arc, Mutex};
-use std::collections::{HashSet, VecDeque, HashMap};
+use std::collections::{HashSet, HashMap};
 use std::thread;
 
 pub struct Day07;
@@ -55,10 +55,10 @@ impl Day07 {
         map: &Vec<Vec<char>>,
         beams: &mut HashMap<(usize, usize), i64>
     ) -> (i64, i64) { 
-        let mut lastRowReached = false;
+        let mut last_row_reached = false;
         let mut splits: i64 = 0;
 
-        while (!lastRowReached) {
+        while !last_row_reached {
             let mut new_beams = HashMap::new();
 
             for (&(x, y), count) in beams.iter() {
@@ -71,7 +71,7 @@ impl Day07 {
                     *new_beams.entry((x, y + 1)).or_default() += *count;
                 }
                 if y + 1 == map.len() - 1 {
-                    lastRowReached = true;
+                    last_row_reached = true;
                 }
             }
 

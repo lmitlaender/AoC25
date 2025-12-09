@@ -1,7 +1,4 @@
-use std::{f64::consts::PI};
-
 use super::Day;
-use num::complex::Complex;
 
 pub struct Day04;
 
