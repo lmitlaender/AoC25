@@ -6,5 +6,6 @@ authors = ["Lutz Mitländer <lutz@mitlaender.dev>"]
 
 [dependencies]
 geo = "0.32.0"
+good_lp = { version = "1.14.2", default-features = false, features = ["microlp", "highs"] }
 num = "0.4.3"
 regex = "1.12.2"
