@@ -13,6 +13,7 @@ pub mod day07;
 pub mod day08;
 pub mod day09;
 pub mod day10;
+pub mod day11;
 
 use std::vec;
 
@@ -26,6 +27,7 @@ use day07::Day07;
 use day08::Day08;
 use day09::Day09;
 use day10::Day10;
+use day11::Day11;
 
 
 pub fn get_days() -> Vec<(i32, Box<dyn Day>)> {
@@ -42,6 +44,7 @@ pub fn get_days() -> Vec<(i32, Box<dyn Day>)> {
     map.push((8, Box::new(Day08)));
     map.push((9, Box::new(Day09)));
     map.push((10, Box::new(Day10)));
+    map.push((11, Box::new(Day11)));
 
     map
 }
