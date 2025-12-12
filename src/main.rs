@@ -106,5 +106,5 @@ fn main() {
     println!("Part 1: {} (average time: {:?} µs)", part1_result, avg_duration_part1);
     println!("Part 2: {} (average time: {:?} µs)", part2_result, avg_duration_part2);
 
-    println!("Thanks for helping save christmas! See you tomorrow 🎄");
+    println!("Thanks for helping save christmas! See you NOT tomorrow we are DONE🎄");
 }
